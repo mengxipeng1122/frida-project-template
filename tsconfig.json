@@ -1,12 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "lib": ["es2020"],
-    "allowJs": true,
-    "noEmit": true,
+    "target": "es6",
+    "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "node16"
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "types": ["node"]
   },
-  "exclude": ["_agent.js"]
+  "exclude": [
+    "_agent.js",
+    "agent",
+    "node_modules/@types/frida-gum"
+  ]
 }

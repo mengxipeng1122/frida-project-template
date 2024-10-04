@@ -1,8 +1,7 @@
-import { log } from "./logger.js";
 
 
 const entry = () => {
-    log("Hello, world!");
+    console.log("hello world");
 };
 
 console.log("##################################################");
