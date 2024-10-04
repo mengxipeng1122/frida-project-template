@@ -5,15 +5,9 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
-    "prepare": "npm run build",
-    "build:server": "tsc -p tsconfig.json",
-    "build:client": "webpack --mode production",
-    "build": "npm run build:client && npm run build:server",
-    "start:server": "node dist/server/server.js",
-    "start:client": "webpack serve --mode development --open",
-    "dev:server": "nodemon --watch src/server --exec 'npm run build:server && npm run start:server'",
-    "dev:client": "webpack serve --mode development --open",
-    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\""
+    "start": "webpack-dev-server",
+    "dev": "concurrently \"ts-node src/server.ts\" \"nodemon --watch src/client.ts --watch src/public/ -e ts,js,html,css --exec 'npm run build'\"",
+    "build": "webpack --mode production"
   },
   "devDependencies": {
     "@types/frida-gum": "^18.3.1",
@@ -31,6 +25,7 @@
     "concurrently": "^9.0.1",
     "express": "^4.21.0",
     "nodemon": "^3.1.7",
-    "ts-frida": "^1.0.23"
+    "ts-frida": "^1.0.23",
+    "ts-node": "^10.9.2"
   }
 }
