@@ -6,7 +6,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "webpack-dev-server",
-    "dev": "concurrently \"ts-node src/server.ts\" \"nodemon --watch src/client.ts --watch src/public/ -e ts,js,html,css --exec 'npm run build'\"",
+    "dev": "concurrently \"ts-node src/server.ts\" \"nodemon --watch src/**/*.ts --watch src/public/ -e ts,js,html,css --exec 'npm run build'\"",
     "build": "webpack --mode production"
   },
   "devDependencies": {

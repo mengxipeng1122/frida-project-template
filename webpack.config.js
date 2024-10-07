@@ -2,7 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/client.ts',
+  entry: {
+    main: './src/client.ts',
+    about: './src/about.ts'
+  },
   module: {
     rules: [
       {
@@ -16,12 +19,19 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/public/index.html',
+      chunks: ['main'],
+      filename: 'index.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/public/about.html',
+      chunks: ['about'],
+      filename: 'about.html',
     }),
   ],
   devServer: {
