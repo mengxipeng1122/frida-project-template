@@ -1,7 +1,7 @@
 
 
-all:
+all: build_frida
 
 
 build_frida:
-	frida-compile agent/index.ts -o agent.js
+	npm run build_frida
